@@ -1,0 +1,20 @@
+{
+    "name": "steelywing/chinese",
+    "description": "Convert Traditional and Simplified Chinese",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Steely Wing",
+            "email": "steely.wing@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": { "SteelyWing\\Chinese\\": "" },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    }
+}
