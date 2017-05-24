@@ -5,25 +5,22 @@ namespace SteelyWing\Chinese;
 
 class Chinese
 {
-    private $toChsDict = [];
-    private $toChtDict = [];
+    public $dictPath = __DIR__ . '/dict/';
+    private $dict = [];
 
-    public function __construct($toChsFile = null, $toChtFile = null)
+    public function __construct(array $dictionaries = ['chs', 'cht'])
     {
-        if ($toChsFile === null) {
-            $toChsFile = __DIR__ . '/ToChs.csv';
+        foreach ($dictionaries as $dict) {
+            $this->load($dict);
         }
-
-        if ($toChtFile === null) {
-            $toChtFile = __DIR__ . '/ToCht.csv';
-        }
-
-        $this->toChsDict = self::load($toChsFile);
-        $this->toChtDict = self::load($toChtFile);
     }
 
-    private static function load($path)
+    public function load($locale, $path = null)
     {
+        if ($path === null) {
+            $path = $this->dictPath . $locale . '.csv';
+        }
+
         $file = new \SplFileObject($path);
         $file->setFlags(
             \SplFileObject::READ_CSV |
@@ -32,6 +29,7 @@ class Chinese
         );
 
         $dict = [];
+        $this->dict[$locale] =& $dict;
         foreach ($file as $fields) {
             if (count($fields) != 2) {
                 throw new \Exception(
@@ -44,16 +42,11 @@ class Chinese
             $dict[$fields[0]] = $fields[1];
         }
 
-        return $dict;
+        return $this;
     }
 
-    public function toChs($string)
+    public function to($locale, $string)
     {
-        return strtr($string, $this->toChsDict);
-    }
-
-    public function toCht($string)
-    {
-        return strtr($string, $this->toChtDict);
+        return strtr($string, $this->dict[$locale]);
     }
 }
