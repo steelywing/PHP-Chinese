@@ -29,6 +29,7 @@ echo $chinese->to(Chinese::CHT, "转成繁体中文\n");
 Switch to OpenCC, run the following in command line
 ```sh
 cd dict
+git clone https://github.com/BYVoid/OpenCC.git
 php import_opencc.php
 ```
 
