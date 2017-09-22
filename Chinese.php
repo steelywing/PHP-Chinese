@@ -5,10 +5,12 @@ namespace SteelyWing\Chinese;
 
 class Chinese
 {
+    const CHS = 'chs';
+    const CHT = 'cht';
     public $dictPath = __DIR__ . '/dict/';
     private $dict = [];
 
-    public function __construct(array $dictionaries = ['chs', 'cht'])
+    public function __construct(array $dictionaries = [self::CHS, self::CHT])
     {
         foreach ($dictionaries as $dict) {
             $this->load($dict);
