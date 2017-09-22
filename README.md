@@ -1,5 +1,5 @@
 # Chinese Conversion
-PHP Chinese Conversion, Simple, Lightweight
+PHP Chinese Conversion, Simple, Lightweight (v0.2 with WikiMedia Library < 400KB)
 
 ## Installation
 ### Composer
@@ -11,6 +11,7 @@ generate `autoload.php`.
 
 ## Feature
 - Use WikiMedia or OpenCC library
+- 使用最長匹配規則
 
 ## Demo
 ```php
@@ -38,3 +39,9 @@ Switch to WikiMedia, run the following in command line
 cd dict
 php import_wikimedia.php
 ```
+
+## License
+MIT
+
+[WikiMedia License](https://github.com/wikimedia/mediawiki/blob/master/COPYING)
+[OpenCC License](https://github.com/BYVoid/OpenCC/blob/master/LICENSE)
