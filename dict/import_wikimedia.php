@@ -4,15 +4,17 @@ function write($file, $dict) {
     $file = new SplFileObject($file, 'w');
 
     foreach ($dict as $key => $value) {
-        $file->fputcsv([$key, $value]);
+        $file->fputcsv([$key, $value], ",");
     }
 }
 
+echo "Downloading ZhConversion.php\n";
 $file = file_get_contents('https://phabricator.wikimedia.org/source/mediawiki/browse/master/languages/data/ZhConversion.php?view=raw');
 if ($file === false) {
     exit('Download ZhConversion.php failed');
 }
 
+echo "Writing ZhConversion.php\n";
 if (file_put_contents('ZhConversion.php', $file) === false) {
     exit('Write ZhConversion.php failed');
 }
