@@ -7,7 +7,29 @@ require_once '../Chinese.php';
 $chinese = new Chinese();
 
 // 转成简体中文
-echo $chinese->to(Chinese::CHS, "轉成簡體中文\n");
+echo $chinese->to(Chinese::CHS, '轉成簡體中文');
+echo "\n";
 
 // 轉成繁體中文
-echo $chinese->to(Chinese::CHT, "转成繁体中文\n");
+echo $chinese->to(Chinese::CHT, '转成繁体中文');
+echo "\n";
+
+// Default locale is CHT
+$chinese->setLocale(Chinese::CHS);
+// 转成简体中文
+echo $chinese->convert('轉成簡體中文');
+echo "\n";
+
+$chinese->setLocale(Chinese::CHT);
+// 轉成繁體中文
+echo $chinese->convert("转成繁体中文");
+echo "\n";
+
+
+// If you don't want to load all dictionary
+
+// Only load Traditional Chinese dictionary
+$chinese = new Chinese([Chinese::CHT]);
+
+// Only load Simplified Chinese dictionary
+$chinese = new Chinese([Chinese::CHS]);
