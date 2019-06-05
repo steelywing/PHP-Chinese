@@ -24,6 +24,10 @@ class Chinese
             $path = $this->dictPath . $locale . '.csv';
         }
 
+        // If not set to zh_*, parsing CSV will not work properly
+        setlocale(LC_COLLATE, 'zh_Hant');
+        setlocale(LC_CTYPE, 'zh_Hant');
+
         $file = new \SplFileObject($path);
         $file->setFlags(
             \SplFileObject::READ_CSV |
