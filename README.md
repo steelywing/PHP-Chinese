@@ -1,20 +1,34 @@
 # Chinese Conversion
 PHP Chinese Conversion, Simple, Lightweight (v0.2 with WikiMedia Library < 400KB)
 
-## Installation
-### Composer
-Run `composer require steelywing/chinese`
+# Installation
 
-### Manually
-Clone this repo, run `composer dump-autoload` on root directory to 
-generate `autoload.php`.
+## Use [Composer](https://getcomposer.org)
+```
+composer require steelywing/chinese
+```
 
-## Feature
+## Manually install
+
+- Clone this repo
+  ```
+  git clone https://github.com/steelywing/PHP-Chinese.git
+  ```
+
+- Generate `autoload.php`, run on `PHP-Chinese` folder
+  ```
+  composer dump-autoload
+  ```
+
+# Feature
 - Use WikiMedia or OpenCC library
+- Lightweight
 - 使用最長匹配規則
 
-## Demo
+# Demo
 ```php
+require_once __DIR__ . '/vendor/autoload.php';
+
 use SteelyWing\Chinese\Chinese;
 
 $chinese = new Chinese();
@@ -26,7 +40,7 @@ echo $chinese->to(Chinese::CHS, "轉成簡體中文\n");
 echo $chinese->to(Chinese::CHT, "转成繁体中文\n");
 ```
 
-## Switch library
+# Switch library
 Switch to OpenCC, run the following in command line
 ```sh
 cd dict
@@ -40,8 +54,10 @@ cd dict
 php import_wikimedia.php
 ```
 
-## License
+# License
+
 MIT
 
 [WikiMedia License](https://github.com/wikimedia/mediawiki/blob/master/COPYING)
+
 [OpenCC License](https://github.com/BYVoid/OpenCC/blob/master/LICENSE)
