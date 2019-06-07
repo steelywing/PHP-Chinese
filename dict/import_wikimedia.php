@@ -1,10 +1,11 @@
 <?php
 
 function write($file, $dict) {
+    echo "Writing $file\n";
     $file = new SplFileObject($file, 'w');
 
     foreach ($dict as $key => $value) {
-        $file->fputcsv([$key, $value], ",");
+        $file->fputcsv([$key, $value], ',');
     }
 }
 
@@ -14,24 +15,13 @@ if ($file === false) {
     exit('Download ZhConversion.php failed');
 }
 
-echo "Writing ZhConversion.php\n";
-if (file_put_contents('ZhConversion.php', $file) === false) {
-    exit('Write ZhConversion.php failed');
-}
+echo "Evalating...\n";
+eval("?>$file");
 
-require_once 'ZhConversion.php';
+use \MediaWiki\Languages\Data\ZhConversion;
 
-echo "Writing cht.csv\n";
-write('cht.csv', \MediaWiki\Languages\Data\ZhConversion::$zh2Hant);
-
-echo "Writing chs.csv\n";
-write('chs.csv', \MediaWiki\Languages\Data\ZhConversion::$zh2Hans);
-
-echo "Writing tw.csv\n";
-write('tw.csv', \MediaWiki\Languages\Data\ZhConversion::$zh2TW);
-
-echo "Writing hk.csv\n";
-write('hk.csv', \MediaWiki\Languages\Data\ZhConversion::$zh2HK);
-
-echo "Writing cn.csv\n";
-write('cn.csv', \MediaWiki\Languages\Data\ZhConversion::$zh2CN);
+write('cht.csv', ZhConversion::$zh2Hant);
+write('chs.csv', ZhConversion::$zh2Hans);
+write('tw.csv', ZhConversion::$zh2TW);
+write('hk.csv', ZhConversion::$zh2HK);
+write('cn.csv', ZhConversion::$zh2CN);
