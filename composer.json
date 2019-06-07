@@ -1,6 +1,6 @@
 {
     "name": "steelywing/chinese",
-    "description": "Convert Traditional and Simplified Chinese",
+    "description": "中文繁簡轉換 Convert Traditional and Simplified Chinese",
     "type": "library",
     "license": "MIT",
     "authors": [
