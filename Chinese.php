@@ -24,7 +24,13 @@ class Chinese
             $path = $this->dictPath . $locale . '.csv';
         }
 
+        $originalLocale = [
+            'LC_COLLATE' => setlocale(LC_COLLATE, 0),
+            'LC_CTYPE' => setlocale(LC_CTYPE, 0),
+        ];
+
         // If not set to zh_*, parsing CSV will not work properly
+        // setlocale(LC_ALL, 'zh_Hant');
         setlocale(LC_COLLATE, 'zh_Hant');
         setlocale(LC_CTYPE, 'zh_Hant');
 
@@ -48,6 +54,9 @@ class Chinese
             }
             $dict[$fields[0]] = $fields[1];
         }
+
+        setlocale(LC_COLLATE, $originalLocale['LC_COLLATE']);
+        setlocale(LC_CTYPE, $originalLocale['LC_CTYPE']);
 
         return $this;
     }
