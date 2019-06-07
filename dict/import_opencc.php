@@ -1,11 +1,11 @@
 <?php
 
 $files = [
-    'cht.csv' => [
+    'zh-Hant.csv' => [
         'OpenCC/data/dictionary/STCharacters.txt',
         'OpenCC/data/dictionary/STPhrases.txt',
     ],
-    'chs.csv' => [
+    'zh-Hans.csv' => [
         'OpenCC/data/dictionary/TSCharacters.txt',
         'OpenCC/data/dictionary/TSPhrases.txt',
     ]
