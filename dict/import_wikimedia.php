@@ -20,8 +20,8 @@ eval("?>$file");
 
 use \MediaWiki\Languages\Data\ZhConversion;
 
-write('cht.csv', ZhConversion::$zh2Hant);
-write('chs.csv', ZhConversion::$zh2Hans);
-write('tw.csv', ZhConversion::$zh2TW);
-write('hk.csv', ZhConversion::$zh2HK);
-write('cn.csv', ZhConversion::$zh2CN);
+write('zh-Hant.csv', ZhConversion::$zh2Hant);
+write('zh-Hans.csv', ZhConversion::$zh2Hans);
+write('zh-TW.csv', ZhConversion::$zh2TW);
+write('zh-HK.csv', ZhConversion::$zh2HK);
+write('zh-CN.csv', ZhConversion::$zh2CN);

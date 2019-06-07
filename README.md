@@ -26,6 +26,9 @@ composer require steelywing/chinese
 - 使用最長匹配規則
 
 # Demo
+
+For more usage, see [demo.php](demo/demo.php)
+
 ```php
 require_once __DIR__ . '/vendor/autoload.php';
 

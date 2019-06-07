@@ -5,13 +5,15 @@ namespace SteelyWing\Chinese;
 
 class Chinese
 {
-    const CHS = 'chs';
-    const CHT = 'cht';
+    const ZH_HANS = 'zh-Hans';
+    const ZH_HANT = 'zh-Hant';
+    const CHS = self::ZH_HANS;
+    const CHT = self::ZH_HANT;
     public $dictPath = __DIR__ . '/dict/';
-    private $locale = self::CHT;
+    private $locale = self::ZH_HANT;
     private $dict = [];
 
-    public function __construct(array $dictionaries = [self::CHS, self::CHT])
+    public function __construct(array $dictionaries = [self::ZH_HANS, self::ZH_HANT])
     {
         foreach ($dictionaries as $dict) {
             $this->load($dict);
