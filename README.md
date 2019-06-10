@@ -36,24 +36,19 @@ use SteelyWing\Chinese\Chinese;
 
 $chinese = new Chinese();
 
-// 转成简体中文
-echo $chinese->to(Chinese::CHS, "轉成簡體中文\n");
-
-// 轉成繁體中文
-echo $chinese->to(Chinese::CHT, "转成繁体中文\n");
+echo $chinese->to(Chinese::ZH_HANS, '轉成簡體中文'); // 转成简体中文
+echo $chinese->to(Chinese::ZH_HANT, '转成繁体中文'); // 轉成繁體中文
 ```
 
 # Switch library
-Switch to OpenCC, run the following in command line
+Switch to OpenCC, run the following command in `dict` folder
 ```sh
-cd dict
 git clone https://github.com/BYVoid/OpenCC.git
 php import_opencc.php
 ```
 
-Switch to WikiMedia, run the following in command line
+Switch to WikiMedia, run the following command in `dict` folder
 ```sh
-cd dict
 php import_wikimedia.php
 ```
 
